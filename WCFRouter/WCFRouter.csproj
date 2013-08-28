@@ -86,12 +86,12 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Service1.svc" />
+    <Content Include="SelfUpdatingRouter.svc" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AzureLocalStorageTraceListener.cs" />
-    <Compile Include="Service1.svc.cs">
-      <DependentUpon>Service1.svc</DependentUpon>
+    <Compile Include="SelfUpdatingRouter.svc.cs">
+      <DependentUpon>SelfUpdatingRouter.svc</DependentUpon>
     </Compile>
     <Compile Include="IServiceRouter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

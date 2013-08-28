@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WCFRouter.Service1" CodeBehind="SelfUpdatingRouter.svc.cs" %>

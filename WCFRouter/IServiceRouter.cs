@@ -19,7 +19,7 @@ namespace WCFRouter
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
-        // TODO: Add your service operations here
+        
     }
 
 

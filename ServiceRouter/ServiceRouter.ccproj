@@ -5,13 +5,13 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>2.1</ProductVersion>
-    <ProjectGuid>66ad3d61-68c3-4492-8bf5-586cca0f4399</ProjectGuid>
+    <ProjectGuid>038056bd-e231-46c0-bc55-a41e6a84bc13</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SelfUpdatingWCFRouter</RootNamespace>
-    <AssemblyName>SelfUpdatingWCFRouter</AssemblyName>
+    <RootNamespace>ServiceRouter</RootNamespace>
+    <AssemblyName>ServiceRouter</AssemblyName>
     <StartDevelopmentStorage>True</StartDevelopmentStorage>
-    <Name>SelfUpdatingWCFRouter</Name>
+    <Name>ServiceRouter</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,10 +37,44 @@
     <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="WCFRouterContent\" />
+    <ProjectReference Include="..\HelloWorldExtended\HelloWorldExtended.csproj">
+      <Name>HelloWorldExtended</Name>
+      <Project>{544a59fe-d565-4dfe-a4c2-9886a39ee549}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>HelloWorldExtended</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+    <ProjectReference Include="..\HelloWorld\HelloWorld.csproj">
+      <Name>HelloWorld</Name>
+      <Project>{c9bfde23-2563-40e2-822c-13dd6dc9fcf6}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>HelloWorld</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+    <ProjectReference Include="..\SelfUpdatingServiceRouter\SelfUpdatingServiceRouter.csproj">
+      <Name>SelfUpdatingServiceRouter</Name>
+      <Project>{168b18b1-788b-43c4-9545-75dc6a904766}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>SelfUpdatingServiceRouter</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="WCFRouterContent\diagnostics.wadcfg">
+    <Folder Include="HelloWorldContent\" />
+    <Folder Include="HelloWorldExtendedContent\" />
+    <Folder Include="SelfUpdatingServiceRouterContent\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HelloWorldContent\diagnostics.wadcfg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="HelloWorldExtendedContent\diagnostics.wadcfg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SelfUpdatingServiceRouterContent\diagnostics.wadcfg">
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>

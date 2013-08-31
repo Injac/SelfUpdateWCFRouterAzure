@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<ServiceConfiguration serviceName="ServiceRouter" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2013-03.2.0">
+  <Role name="SelfUpdatingServiceRouter">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Domain" value="localhost" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.ClientDiagnosticLevel" value="1" />
+      <Setting name="AssemblyContainerName" value="serviceassemblies" />
+      <Setting name="ContractAssemblyName" value="ContractAssembly.dll" />
+    </ConfigurationSettings>
+  </Role>
+  <Role name="HelloWorld">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Domain" value="localhost" />
+    </ConfigurationSettings>
+  </Role>
+  <Role name="HelloWorldExtended">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Domain" value="localhost" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>

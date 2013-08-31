@@ -1,0 +1,43 @@
+﻿<?xml version="1.0"?>
+<ServiceDefinition name="ServiceRouter" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2013-03.2.0">
+  <WorkerRole name="SelfUpdatingServiceRouter" vmsize="ExtraSmall">
+    <Runtime executionContext="elevated" />
+    <Imports>
+      <Import moduleName="Diagnostics" />
+    </Imports>
+    <Endpoints>
+      <InputEndpoint name="RoutingServiceMain" protocol="tcp" port="10100" />
+    </Endpoints>
+    <ConfigurationSettings>
+      <Setting name="Domain" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.ClientDiagnosticLevel" />
+      <Setting name="AssemblyContainerName" />
+      <Setting name="ContractAssemblyName" />
+    </ConfigurationSettings>
+    <Startup priority="-2">
+      <Task commandLine="Microsoft.WindowsAzure.Caching\ClientPerfCountersInstaller.exe install" executionContext="elevated" taskType="simple" />
+    </Startup>
+  </WorkerRole>
+  <WorkerRole name="HelloWorld" vmsize="Small">
+    <Imports>
+      <Import moduleName="Diagnostics" />
+    </Imports>
+    <Endpoints>
+      <InputEndpoint name="HelloWorldMain" protocol="tcp" port="8888" />
+    </Endpoints>
+    <ConfigurationSettings>
+      <Setting name="Domain" />
+    </ConfigurationSettings>
+  </WorkerRole>
+  <WorkerRole name="HelloWorldExtended" vmsize="Small">
+    <Imports>
+      <Import moduleName="Diagnostics" />
+    </Imports>
+    <Endpoints>
+      <InputEndpoint name="HelloWorldExtendedMain" protocol="tcp" port="7777" />
+    </Endpoints>
+    <ConfigurationSettings>
+      <Setting name="Domain" />
+    </ConfigurationSettings>
+  </WorkerRole>
+</ServiceDefinition>
